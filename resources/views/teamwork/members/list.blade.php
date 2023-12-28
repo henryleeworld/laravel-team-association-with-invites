@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix">
                         {{ trans('frontend.teams.members.statement') }}"{{$team->name}}"
-                        <a href="{{route('teams.index')}}" class="btn btn-sm btn-default pull-right">
+                        <a href="{{route('teams.index')}}" class="btn btn-sm btn-light pull-right">
                             <i class="fa fa-arrow-left"></i> {{ trans('frontend.teams.members.content.back') }}
                         </a>
                     </div>
@@ -52,7 +52,7 @@
                                 <tr>
                                     <td>{{$invite->email}}</td>
                                     <td>
-                                        <a href="{{route('teams.members.resend_invite', $invite)}}" class="btn btn-sm btn-default">
+                                        <a href="{{route('teams.members.resend_invite', $invite)}}" class="btn btn-sm btn-light">
                                             <i class="fa fa-envelope-o"></i> {{ trans('frontend.teams.members.content.resend_invite') }}
                                         </a>
                                     </td>

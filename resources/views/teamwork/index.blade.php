@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix">
                         {{ trans('frontend.teams.title') }}
-                        <a class="pull-right btn btn-default btn-sm" href="{{route('teams.create')}}">
+                        <a class="pull-right btn btn-light btn-sm" href="{{route('teams.create')}}">
                             <i class="fa fa-plus"></i> {{ trans('frontend.teams.create.title') }}
                         </a>
                     </div>
@@ -33,20 +33,20 @@
                                         </td>
                                         <td>
                                             @if(is_null(auth()->user()->currentTeam) || auth()->user()->currentTeam->getKey() !== $team->getKey())
-                                                <a href="{{route('teams.switch', $team)}}" class="btn btn-sm btn-default">
+                                                <a href="{{route('teams.switch', $team)}}" class="btn btn-sm btn-light">
                                                     <i class="fa fa-sign-in"></i> {{ trans('frontend.teams.content.switch') }}
                                                 </a>
                                             @else
                                                 <span class="label label-default">{{ trans('frontend.teams.content.current_team') }}</span>
                                             @endif
 
-                                            <a href="{{route('teams.members.show', $team)}}" class="btn btn-sm btn-default">
+                                            <a href="{{route('teams.members.show', $team)}}" class="btn btn-sm btn-light">
                                                 <i class="fa fa-users"></i> {{ trans('frontend.teams.content.members') }}
                                             </a>
 
                                             @if(auth()->user()->isOwnerOfTeam($team))
 
-                                                <a href="{{route('teams.edit', $team)}}" class="btn btn-sm btn-default">
+                                                <a href="{{route('teams.edit', $team)}}" class="btn btn-sm btn-light">
                                                     <i class="fa fa-pencil"></i> {{ trans('frontend.teams.content.edit') }}
                                                 </a>
 
