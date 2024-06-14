@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Language Lines
@@ -12,6 +13,8 @@ return [
     |
     */
 
-    'failed'   => '使用者名稱或密碼錯誤',
-    'throttle' => '嘗試登入太多次，請在 :seconds 秒後再試。',
+    'failed' => 'These credentials do not match our records.',
+    'password' => 'The provided password is incorrect.',
+    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+
 ];
