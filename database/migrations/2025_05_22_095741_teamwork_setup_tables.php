@@ -7,25 +7,23 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::table(\Config::get('teamwork.users_table'), function (Blueprint $table) {
-            $table->integer('current_team_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('current_team_id')->nullable();
         });
 
         Schema::create(\Config::get('teamwork.teams_table'), function (Blueprint $table) {
-            $table->increments('id')->unsigned();
-            $table->integer('owner_id')->unsigned()->nullable();
+            $table->id();
+            $table->unsignedBigInteger('owner_id')->nullable();
             $table->string('name');
             $table->timestamps();
         });
 
         Schema::create(\Config::get('teamwork.team_user_table'), function (Blueprint $table) {
-            $table->bigInteger('user_id')->unsigned();
-            $table->integer('team_id')->unsigned();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('team_id');
             $table->timestamps();
 
             $table->foreign('user_id')
@@ -41,9 +39,9 @@ return new class extends Migration
         });
 
         Schema::create(\Config::get('teamwork.team_invites_table'), function (Blueprint $table) {
-            $table->increments('id');
-            $table->bigInteger('user_id')->unsigned();
-            $table->integer('team_id')->unsigned();
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('team_id');
             $table->enum('type', ['invite', 'request']);
             $table->string('email');
             $table->string('accept_token');
@@ -58,10 +56,8 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::table(\Config::get('teamwork.users_table'), function (Blueprint $table) {
             $table->dropColumn('current_team_id');

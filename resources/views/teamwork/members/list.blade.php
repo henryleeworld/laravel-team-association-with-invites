@@ -5,20 +5,20 @@
         <div class="col-md-8">
             <div class="card mb-3">
                 <div class="card-header">
-                    {{ trans('frontend.teams.members.statement') }}"{{$team->name}}"
+                    {{ __('Members of team :team_name', ['team_name' => $team->name]) }}
                     <a href="{{route('teams.index')}}" class="btn btn-sm btn-secondary pull-right">
-                        <i class="fa fa-arrow-left"></i> {{ trans('frontend.teams.members.content.back') }}
+                        <i class="fa fa-arrow-left"></i> {{ __('Back') }}
                     </a>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>{{ trans('frontend.teams.members.content.name') }}</th>
-                                <th>{{ trans('frontend.teams.members.content.action') }}</th>
+                                <th>{{ __('Name') }}</th>
+                                <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
-                        @foreach($team->users AS $user)
+                        @foreach($team->users as $user)
                         <tr>
                             <td>{{$user->name}}</td>
                             <td>
@@ -28,7 +28,7 @@
                                         {!! csrf_field() !!}
                                         <input type="hidden" name="_method" value="DELETE" />
                                         <button class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash-o"></i> {{ trans('frontend.teams.members.content.delete') }}
+                                            <i class="fa fa-trash-o"></i> {{ __('Delete') }}
                                         </button>
                                     </form>
                                     @endif
@@ -40,21 +40,21 @@
                 </div>
             </div>
             <div class="card mb-3">
-                <div class="card-header">{{ trans('frontend.teams.members.content.pending_invitations') }}</div>
+                <div class="card-header">{{ __('Pending invitations') }}</div>
                 <div class="card-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>{{ trans('frontend.teams.members.content.email') }}</th>
-                                <th>{{ trans('frontend.teams.members.content.action') }}</th>
+                                <th>{{ __('E-Mail') }}</th>
+                                <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
-                        @foreach($team->invites AS $invite)
+                        @foreach($team->invites as $invite)
                         <tr>
                             <td>{{$invite->email}}</td>
                             <td>
                                 <a href="{{route('teams.members.resend_invite', $invite)}}" class="btn btn-sm btn-secondary">
-                                    <i class="fa fa-envelope-o"></i> {{ trans('frontend.teams.members.content.resend_invite') }}
+                                    <i class="fa fa-envelope-o"></i> {{ __('Resend invite') }}
                                 </a>
                             </td>
                         </tr>
@@ -63,12 +63,12 @@
                 </div>
             </div>
             <div class="card mb-0">
-                <div class="card-header">{{ trans('frontend.teams.members.content.invite_to_team') }}"{{$team->name}}"</div>
+                <div class="card-header">{{ __('Invite to team :team_name', ['team_name' => $team->name]) }}</div>
                 <div class="card-body">
                     <form class="form-horizontal" method="post" action="{{route('teams.members.invite', $team)}}">
                         {!! csrf_field() !!}
                         <div class="mb-3 {{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">{{ trans('frontend.teams.members.content.email_address') }}</label>
+                            <label class="col-md-4 control-label">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}" />
@@ -83,7 +83,7 @@
 
                         <div class="mb-0">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-btn fa-envelope-o"></i>{{ trans('frontend.teams.members.content.invite_to_team') }}</button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-btn fa-envelope-o"></i>{{ __('Invite to team') }}</button>
                             </div>
                         </div>
                     </form>
