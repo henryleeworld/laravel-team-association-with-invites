@@ -1,4 +1,4 @@
-# Laravel 11 團隊邀請
+# Laravel 12 團隊邀請
 
 引入 mpociot 的 teamwork 套件來擴增邀請的用戶／團隊關聯，邀請團隊成員加入，並提供必需的資源與支援，讓團隊共同成長邁向成功。
 
@@ -36,11 +36,11 @@ $ npm run build
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/YRH03oP.png)
+![](https://i.imgur.com/OxAVZnf.png)
 > 公司內部出現了各式各樣的團隊，從品管圈、新產品開發小組、到經營管理小組
 
-![](https://i.imgur.com/UqlEH2N.png)
+![](https://i.imgur.com/OFCcOy0.png)
 > 建立新團隊以立定志願完成一個共同的宗旨，達到一些明確具體的目標
 
-![](https://i.imgur.com/chrwed8.png)
+![](https://i.imgur.com/F2YTMTJ.png)
 > 填寫電子郵件以作邀請傳送邀請函
